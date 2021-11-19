@@ -1,13 +1,25 @@
 package org.launchcode.techjobs.persistent.models;
 
 import java.util.Objects;
+//import javax.persistence.MappedSuperclass;
+import javax.persistence.MappedSuperclass;
+//import javax.persistence.Id;
+//import javax.persistence.GeneratedValue;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
-
+@MappedSuperclass
 public abstract class AbstractEntity {
-
+    @Id
+    @GeneratedValue
     private int id;
 
+    @NotNull
+    @Size(min=3,max=50)
     private String name;
+
+    protected AbstractEntity() {
+    }
 
     public int getId() {
         return id;
